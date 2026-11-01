@@ -281,7 +281,7 @@ def do_html(src):
     h = open(src, encoding="utf-8").read()
     h = patch(h, CSS_OLD, CSS_NEW, "css")
     h = patch(h, HOME_OLD, HOME_NEW, "home button")
-    h = patch(h, "</main>\n<div id=\"hud\">", SECTION + "</main>\n<div id=\"hud\">", "end of main")
+    h = patch(h, "</main>", SECTION + "</main>", "end of main")
     h = patch(h, "filt:'bw2',despike:true,", "imuFilt:'bw2',imuFc:15,imuBias:[0,0,0],filt:'bw2',despike:true,", "defaults")
     h = patch(h, "  if(line[0]==='#'){dev.info=line;return}\n", "  if(line[0]==='#'){dev.info=line;return}\n  if(line[0]==='M'){imuLine(line);return}\n", "handleLine")
     h = patch(h, "dev.lastTdev=null;lastRx=0;lastGood=0}", "dev.lastTdev=null;lastRx=0;lastGood=0;imuReset()}", "resetStream")
